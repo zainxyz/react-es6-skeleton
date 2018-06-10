@@ -1,26 +1,83 @@
 module.exports = {
   env: {
-    es6: true,
     browser: true,
+    es6: true,
+    jest: true,
     mocha: true,
-    node: true,
+    node: true
   },
-  extends: 'eslint-config-react-xyz',
+  extends: ['airbnb', 'eslint:recommended', 'react-app'],
   globals: {
     document: true,
-    window: true,
+    window: true
   },
   parser: 'babel-eslint',
-  plugins: ['react', 'jsx-a11y', 'import'],
+  parserOptions: {
+    ecmaFeatures: {
+      experimentalDecorators: true,
+      jsx: true
+    },
+    ecmaVersion: 8,
+    sourceType: 'module'
+  },
+  plugins: ['react', 'import'],
   rules: {
+    'comma-dangle': [
+      'warn',
+      {
+        arrays: 'never',
+        exports: 'ignore',
+        functions: 'never',
+        imports: 'ignore',
+        objects: 'never'
+      }
+    ],
+    'func-names': 0,
+    'import/prefer-default-export': 'off',
+    indent: [
+      'error',
+      2,
+      {
+        FunctionDeclaration: {
+          body: 1,
+          parameters: 3
+        }
+      }
+    ],
+    'key-spacing': [
+      2,
+      {
+        align: 'colon'
+      }
+    ],
+    'no-console': 'warn',
     'no-template-curly-in-string': 'off',
+    'no-undef': 'warn',
+    'no-underscore-dangle': 0,
+    'no-use-before-define': 'warn',
+    'prefer-rest-params': 'warn',
     'react/forbid-prop-types': 'off',
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.js', '.jsx']
+      }
+    ],
+    semi: 2,
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'never',
+        asyncArrow: 'ignore',
+        named: 'never'
+      }
+    ],
     'valid-jsdoc': [
       'warn',
       {
         prefer: {
           returns: 'return',
-          yield: 'yields',
+          yield: 'yields'
         },
         preferType: {
           Boolean: 'boolean',
@@ -28,19 +85,19 @@ module.exports = {
           String: 'string',
           array: 'Array',
           function: 'Function',
-          object: 'Object',
+          object: 'Object'
         },
         requireParamDescription: false,
         requireReturn: false,
-        requireReturnDescription: false,
-      },
-    ],
+        requireReturnDescription: false
+      }
+    ]
   },
   settings: {
     'import/resolver': {
       node: {
-        moduleDirectory: ['src', 'node_modules'],
-      },
-    },
-  },
+        moduleDirectory: ['src', 'node_modules']
+      }
+    }
+  }
 };

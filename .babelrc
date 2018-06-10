@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "displayName": true,
+        "fileName": true,
+        "minify": true,
+        "transpileTemplateLiterals": true
+      }
+    ],
+    "react-docgen",
+    "transform-class-properties",
+    "transform-decorators-legacy"
+  ],
+  "presets": [
+    "env",
+    "react-app"
+  ]
+}
